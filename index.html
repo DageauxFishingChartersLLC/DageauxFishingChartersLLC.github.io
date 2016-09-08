@@ -41,6 +41,7 @@
 	</style>
 </head>
 <body>
+	<div id="fb-root"></div>
 	<!-- Navigation -->
 	<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle">
 		<i class="fa fa-bars"></i>
@@ -311,6 +312,10 @@
 						</li>
 					</ul>
 					<hr class="small" />
+					<div class="row">
+						<div class="fb-page" data-href="https://www.facebook.com/dageauxfishing/" data-tabs="timeline,events,messages" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/dageauxfishing/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/dageauxfishing/">Dageaux Fishing Charters LLC</a></blockquote></div>
+					</div>
+					<hr class="small" />
 					<p class="text-muted">
 						Copyright &copy; Dageaux Fishing Charters, LLC 2016
 					</p>
@@ -325,82 +330,90 @@
 	<script src="//cdn.rawgit.com/noelboss/featherlight/1.5.0/release/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-	// Closes the sidebar menu
-	$("#menu-close").click(function(e) {
-		e.preventDefault();
-		$("#sidebar-wrapper").toggleClass("active");
-	});
-	
-	// Opens the sidebar menu
-	$("#menu-toggle").click(function(e) {
-		e.preventDefault();
-		$("#sidebar-wrapper").toggleClass("active");
-	});
-	
-	// Scrolls to the selected menu item on the page
-	$(function() {
-		$('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
-			if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-				var target = $(this.hash);
-				target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-				if (target.length) {
-					$('html,body').animate({
-					scrollTop: target.offset().top
-				}, 1000);
-				return false;
-				}
-			}
+		// Closes the sidebar menu
+		$("#menu-close").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
 		});
-	});
-	
-	//#to-top button appears after scrolling
-	var fixed = false;
-	$(document).scroll(function() {
-		if ($(this).scrollTop() > 250) {
-			if (!fixed) {
-				fixed = true;
-				// $('#to-top').css({position:'fixed', display:'block'});
-				$('#to-top').show("slow", function() {
-					$('#to-top').css({
-					position: 'fixed',
-					display: 'block'
-				});
+		
+		// Opens the sidebar menu
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#sidebar-wrapper").toggleClass("active");
+		});
+		
+		// Scrolls to the selected menu item on the page
+		$(function() {
+			$('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+				if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+					var target = $(this.hash);
+					target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+					if (target.length) {
+						$('html,body').animate({
+						scrollTop: target.offset().top
+					}, 1000);
+					return false;
+					}
+				}
 			});
-		}
-		} else {
-			if (fixed) {
-				fixed = false;
-				$('#to-top').hide("slow", function() {
-					$('#to-top').css({
-						display: 'none'
+		});
+		
+		//#to-top button appears after scrolling
+		var fixed = false;
+		$(document).scroll(function() {
+			if ($(this).scrollTop() > 250) {
+				if (!fixed) {
+					fixed = true;
+					// $('#to-top').css({position:'fixed', display:'block'});
+					$('#to-top').show("slow", function() {
+						$('#to-top').css({
+						position: 'fixed',
+						display: 'block'
 					});
 				});
 			}
-		}
-	});
-	
-	// Disable Google Maps scrolling
-	// See http://stackoverflow.com/a/25904582/1607849
-	// Disable scroll zooming and bind back the click event
-	var onMapMouseleaveHandler = function(event) {
-		var that = $(this);
-		that.on('click', onMapClickHandler);
-		that.off('mouseleave', onMapMouseleaveHandler);
-		that.find('iframe').css("pointer-events", "none");
-	};
-	
-	var onMapClickHandler = function(event) {
-		var that = $(this);
-		// Disable the click handler until the user leaves the map area
-		that.off('click', onMapClickHandler);
-		// Enable scrolling zoom
-		that.find('iframe').css("pointer-events", "auto");
-		// Handle the mouse leave event
-		that.on('mouseleave', onMapMouseleaveHandler);
-	};
-	
-	// Enable map zooming with mouse scroll when the user clicks the map
-	$('.map').on('click', onMapClickHandler);
+			} else {
+				if (fixed) {
+					fixed = false;
+					$('#to-top').hide("slow", function() {
+						$('#to-top').css({
+							display: 'none'
+						});
+					});
+				}
+			}
+		});
+		
+		// Disable Google Maps scrolling
+		// See http://stackoverflow.com/a/25904582/1607849
+		// Disable scroll zooming and bind back the click event
+		var onMapMouseleaveHandler = function(event) {
+			var that = $(this);
+			that.on('click', onMapClickHandler);
+			that.off('mouseleave', onMapMouseleaveHandler);
+			that.find('iframe').css("pointer-events", "none");
+		};
+		
+		var onMapClickHandler = function(event) {
+			var that = $(this);
+			// Disable the click handler until the user leaves the map area
+			that.off('click', onMapClickHandler);
+			// Enable scrolling zoom
+			that.find('iframe').css("pointer-events", "auto");
+			// Handle the mouse leave event
+			that.on('mouseleave', onMapMouseleaveHandler);
+		};
+		
+		// Enable map zooming with mouse scroll when the user clicks the map
+		$('.map').on('click', onMapClickHandler);
+			
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.7";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 	</script>
 </body>
 </html>
